@@ -1,117 +1,105 @@
 import Image from "next/image";
+import { SiteFooter } from "@/components/SiteFooter";
+import { SiteHeader } from "@/components/SiteHeader";
+import { assets } from "@/lib/assets";
 
-/** Production file deploys pull brand media from the branch when gitSource is unavailable. */
-const ASSET_BASE =
-  "https://raw.githubusercontent.com/intercal-labs/Intercal/cursor/intercal-labs-splash-v1/public";
-
-const assets = {
-  logo: `${ASSET_BASE}/intercal-labs-logo.png`,
-  hero: `${ASSET_BASE}/hero-lab.webp`,
-  shay: `${ASSET_BASE}/shay-rodriguez-garcia.webp`,
-  taylor: `${ASSET_BASE}/taylor-rodriguez.webp`,
-} as const;
-
-const navLinks = [
-  { href: "#work-we-do", label: "Work" },
-  { href: "#capabilities", label: "Capabilities" },
-  { href: "#lab", label: "Lab" },
-  { href: "#people", label: "People" },
-  { href: "#contact", label: "Contact" },
-] as const;
-
-const capabilities = [
+const offerings = [
   {
     id: "hardware",
-    title: "Hardware",
-    body: "Instrumentation electronics, boards, devices, and loop / physical-layer products — designed, built, and brought into the real world.",
+    title: "Hardware development",
+    body: [
+      "We design and develop custom electronics — schematics, boards, prototypes, and bring-up — for controls, monitoring, and product work. That includes custom PCBs, analog and mixed-signal front ends (including 4–20 mA / instrumentation-style interfaces), power and protection for industrial environments, DIN/cabinet or enclosure packaging, and handoff into firmware so hardware and firmware aren’t two strangers.",
+      "We build hardware for client products and for our own. We do not run a finished instrument catalog. Our first product in development is IC-ND-1 (see Concept). Until something is for sale, the offer is design, prototype, and build.",
+    ],
   },
   {
     id: "firmware",
-    title: "Firmware",
-    body: "Embedded systems, bring-up, protocols, and device software that hits real silicon. Product firmware and custom device work under one roof.",
+    title: "Firmware development",
+    body: [
+      "We write device firmware: bring-up, drivers, communications, control/monitor logic, and field-updatable releases — the layer between the board and the outside world. Bare-metal and RTOS work, sensor and I/O paths, industrial and serial protocols (UART, SPI, I²C, Modbus, and related plant/device links), wireless/networked devices when required, and bench bring-up with scope/logic tools.",
+      "MCU/platform examples (not a closed list): ST STM32, Espressif ESP32, Microchip PIC, other ARM Cortex-class parts, and Linux-class modules when the product is a small computer rather than a microcontroller. Languages: C/C++ on device; Python and host tools for test and manufacturing support.",
+    ],
   },
   {
     id: "software",
-    title: "Software",
-    body: "Applications, integrations, tools, and systems software that connect to real work — not platforms looking for a problem.",
+    title: "Software development",
+    body: [
+      "We build software that does a real job: connects systems you already run, automates manual work, or delivers a custom tool when off-the-shelf almost fits.",
+      "Includes custom web applications (auth, databases, business rules, documents), integrations and data pipelines (legacy, files, on-prem↔cloud, APIs), internal tools (dashboards, workflow automation, CRM-adjacent ops tools), and finishing/hardening AI-scaffolded apps that aren’t production-ready.",
+      "Straight answers to common asks: SaaS/multi-tenant when the product is defined; e-commerce when there’s a real catalog/checkout need; AI/LLM/RAG when it earns a place in a workflow; mobile web-first (native when required); enterprise internal tools as a core lane.",
+      "Stack examples: TypeScript/JavaScript, Node.js, Python, C/C++ where it belongs, Linux, SQL, REST/APIs, AWS and Google Cloud when needed.",
+    ],
   },
   {
     id: "web",
-    title: "Web",
-    body: "Client websites and technical delivery under the Labs umbrella. Clear scope, fast builds, hosting, DNS, SSL, backups, and patches.",
+    title: "Web development",
+    body: [
+      "Client websites and technical maintenance: build, hosting, DNS/SSL, backups, uptime and security patching, dependency updates, forms/email deliverability, minor content edits, troubleshooting. Care is technical only — not ads, reviews, social, or SEO campaigns.",
+    ],
+  },
+  {
+    id: "legacy",
+    title: "Legacy system retrofit",
+    body: [
+      "We retrofit what you already have so it talks to the systems you use now — without a full rip-and-replace.",
+      "That means pulling data out of legacy machines, panels, and plant gear that only have local gauges, dry contacts, 4–20 mA, Modbus, or an old controller; bridging on-prem and outdated software into modern tools; adding monitoring, logging, or a clean interface where none exists; and combining field I&C + hardware/firmware/software when the job needs all three. Typical jobs: an old skid or cabinet that reports nothing, a Windows-era program that still runs the business, a transmitter that never made it into the host, or a process that still depends on someone walking out to look.",
+      "We keep the working asset. We add the path out — signals, device, firmware, software, or all of it. This is not “buy a new DCS.” It’s make the legacy system usable.",
+    ],
+  },
+  {
+    id: "field",
+    title: "Field work — instrumentation & controls",
+    body: [
+      "On site we work the instrumentation and low-voltage controls side — loops and signals that measure and command — not building power systems.",
+      "Calibration & loops: transmitter and loop calibration, loop checks, commissioning, troubleshooting bad PV/status, verifying 4–20 mA and HART-capable loops, as-left documentation.",
+      "Installation & wiring (control/signaling scope): terminating shielded pair; conduit and cable tray for instrumentation/control circuits; marshaling/terminals; like-for-like replacement of instruments and control-side electrical components on existing systems.",
+      "Controls support: PLC/programmable controls tied to real I/O; Modbus and related industrial links; cabinet work on the control side.",
+      "Procurement: source and stage instrumentation, valves, and controls/electrical parts; install in kind as replacements on an existing design — not process redesign.",
+      "Clear line: we do not sell PE-stamped engineering or take 120/240 V premises power as our licensed scope. New power feeds go to a licensed electrician. We stay on Class 1/2/3 remote-control, signaling, and power-limited work (including raceway for those circuits), plus calibration and commissioning — subject to local/plant rules.",
+    ],
   },
 ] as const;
 
+const offeringJump = [
+  { href: "#hardware", label: "Hardware" },
+  { href: "#firmware", label: "Firmware" },
+  { href: "#software", label: "Software" },
+  { href: "#web", label: "Web" },
+  { href: "#field", label: "Field" },
+  { href: "#legacy", label: "Legacy retrofit" },
+] as const;
+
 const labLines = [
-  { title: "Field", body: "Calibration, LV controls, plant service" },
-  { title: "Products", body: "Instrumentation hardware" },
-  { title: "Design", body: "Custom hardware, firmware, and software" },
+  {
+    title: "Field",
+    body: "Instrumentation and low-voltage controls on site — loops, calibration, commissioning.",
+  },
+  {
+    title: "Products",
+    body: "In-house product work, starting with IC-ND-1 — still concept, not for sale.",
+  },
+  {
+    title: "Design",
+    body: "Custom hardware, firmware, software, and web under one lab.",
+  },
 ] as const;
 
 const workLines = [
-  "Instrumentation electronics and loop-side devices",
-  "Embedded firmware for instruments and custom hardware",
-  "Applications and integrations that meet the work where it is",
-  "Client websites and technical delivery",
+  "Custom electronics and instrumentation-side hardware",
+  "Device firmware across common MCU and Linux-class platforms",
+  "Applications, integrations, and internal tools that meet the work",
+  "Client websites with technical hosting and maintenance",
+  "Legacy retrofit — keep the asset, add the path out",
+  "Field I&C: calibration, loop checks, control-side install",
 ] as const;
 
 export default function Home() {
   return (
     <main className="bg-cream text-ink">
-      <header className="nav-shell sticky top-0 z-50 border-b border-cream/10 bg-ink/92 backdrop-blur-md">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-3.5 sm:px-8 lg:px-12">
-          <a href="/" className="shrink-0" aria-label="Intercal Labs home">
-            <Image
-              src={assets.logo}
-              alt="Intercal Labs"
-              width={220}
-              height={58}
-              className="h-10 w-auto sm:h-11 lg:h-12"
-              priority
-            />
-          </a>
+      <SiteHeader active="home" />
 
-          <nav
-            aria-label="Primary"
-            className="hidden items-center gap-7 lg:flex"
-          >
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="font-[family-name:var(--font-body)] text-[0.68rem] uppercase tracking-[0.16em] text-cream/70 transition-colors duration-200 hover:text-cream"
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
-
-          <a
-            href="mailto:info@intercallabs.com"
-            className="btn btn-primary shrink-0"
-          >
-            Contact
-          </a>
-        </div>
-
-        <nav
-          aria-label="Sections"
-          className="flex gap-5 overflow-x-auto border-t border-cream/10 px-5 py-2.5 lg:hidden sm:px-8"
-        >
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="shrink-0 font-[family-name:var(--font-body)] text-[0.62rem] uppercase tracking-[0.15em] text-cream/65 transition-colors hover:text-cream"
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
-      </header>
-
-      {/* 1) Hero — one composition */}
-      <section className="relative isolate min-h-[calc(100dvh-4.75rem)] overflow-hidden">
+      {/* Hero — one composition */}
+      <section className="relative isolate min-h-[calc(100dvh-5.25rem)] overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <Image
             src={assets.hero}
@@ -124,7 +112,7 @@ export default function Home() {
           <div aria-hidden className="hero-veil absolute inset-0" />
         </div>
 
-        <div className="relative flex min-h-[calc(100dvh-4.75rem)] items-end px-5 pb-16 pt-24 sm:items-center sm:px-8 sm:pb-20 sm:pt-20 lg:px-16">
+        <div className="relative flex min-h-[calc(100dvh-5.25rem)] items-end px-5 pb-16 pt-24 sm:items-center sm:px-8 sm:pb-20 sm:pt-20 lg:px-16">
           <div className="w-full max-w-2xl">
             <div className="reveal-brand">
               <Image
@@ -147,99 +135,117 @@ export default function Home() {
               <span />
             </div>
 
-            <p className="reveal-line mt-8 max-w-md font-[family-name:var(--font-body)] text-[0.95rem] leading-relaxed text-[color:var(--mist)] sm:text-base">
-              We design and build hardware, firmware, and software.
+            <p className="reveal-line mt-8 max-w-lg font-[family-name:var(--font-display)] text-xl font-bold leading-snug tracking-tight text-[color:var(--mist)] sm:text-2xl">
+              Hardware. Firmware. Software. Field. Retrofit.
             </p>
 
-            <div className="reveal-cta mt-9 flex flex-wrap items-center gap-3">
+            <div className="reveal-cta mt-9">
               <a
                 href="mailto:info@intercallabs.com"
                 className="btn btn-primary"
               >
                 Email us
               </a>
-              <a href="#capabilities" className="btn btn-secondary">
-                Capabilities
-              </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 2) What we do */}
+      {/* About */}
       <section
-        id="work-we-do"
-        className="scroll-mt-28 border-t border-ink/10 px-5 py-24 sm:px-8 md:px-12 lg:px-16 lg:py-32"
+        id="about"
+        className="scroll-mt-32 border-t border-ink/10 px-5 py-24 sm:px-8 md:px-12 lg:px-16 lg:py-32"
       >
         <div className="mx-auto max-w-4xl">
           <p className="font-[family-name:var(--font-body)] text-[0.68rem] uppercase tracking-[0.22em] text-terracotta">
-            Intercal Labs
+            About
           </p>
           <h2 className="mt-4 max-w-3xl font-[family-name:var(--font-display)] text-[2.6rem] font-black leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-6xl">
-            Hardware. Firmware. Software. Web.
+            A Texas lab for hardware, firmware, software, and field work.
           </h2>
           <div aria-hidden className="mt-7 h-px w-16 bg-terracotta" />
           <p className="mt-8 max-w-2xl font-[family-name:var(--font-body)] text-base leading-relaxed text-[color:var(--fog)] sm:text-lg">
-            One Texas lab that ships instruments, device software, applications,
-            and client websites — Field, Products, and Design under the same
-            company.
-          </p>
-          <p className="mt-6 max-w-2xl font-[family-name:var(--font-body)] text-sm leading-relaxed text-[color:var(--fog)] sm:text-base">
-            Current product focus: HART / 4–20 loop integrity monitoring —
-            parallel tap, not a gateway.
+            Intercal Labs designs and builds hardware, firmware, and software,
+            performs instrumentation and low-voltage controls field work, and
+            retrofits legacy systems so existing gear and software stay useful.
+            Greater Houston / Deer Park area.
           </p>
         </div>
       </section>
 
-      {/* 3) Capabilities */}
+      {/* Offerings */}
       <section
-        id="capabilities"
-        className="scroll-mt-28 border-t border-ink/10 bg-tan/30 px-5 py-24 sm:px-8 md:px-12 lg:px-16 lg:py-32"
+        id="offerings"
+        className="scroll-mt-32 border-t border-ink/10 bg-tan/30 px-5 py-24 sm:px-8 md:px-12 lg:px-16 lg:py-32"
       >
         <div className="mx-auto max-w-5xl">
           <div className="max-w-2xl">
             <h2 className="font-[family-name:var(--font-display)] text-4xl font-black tracking-tight text-ink sm:text-5xl">
-              Capabilities
+              What we offer
             </h2>
             <p className="mt-5 font-[family-name:var(--font-body)] text-sm leading-relaxed text-[color:var(--fog)] sm:text-base">
-              Four lines of work. Same standard.
+              Six lanes. Real scope. Same lab.
             </p>
             <div aria-hidden className="mt-6 h-px w-16 bg-terracotta" />
           </div>
 
-          <div className="mt-16 space-y-0">
-            {capabilities.map((cap, index) => (
-              <article
-                key={cap.id}
-                id={cap.id}
-                className="scroll-mt-28 grid gap-4 border-t border-ink/15 py-12 first:border-t-0 first:pt-0 md:grid-cols-[8rem_minmax(0,14rem)_1fr] md:gap-10 md:py-14"
+          <nav
+            aria-label="Offerings"
+            className="mt-10 flex flex-wrap gap-x-5 gap-y-2"
+          >
+            {offeringJump.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="font-[family-name:var(--font-body)] text-[0.65rem] uppercase tracking-[0.14em] text-scarlet underline decoration-scarlet/25 underline-offset-4 transition-colors hover:text-scarlet-deep"
               >
-                <span className="font-[family-name:var(--font-body)] text-[0.65rem] uppercase tracking-[0.2em] text-terracotta">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <h3 className="font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-ink sm:text-4xl">
-                  {cap.title}
-                </h3>
-                <p className="max-w-xl font-[family-name:var(--font-body)] text-sm leading-relaxed text-[color:var(--fog)] sm:text-base md:pt-2">
-                  {cap.body}
-                </p>
+                {item.label}
+              </a>
+            ))}
+          </nav>
+
+          <div className="mt-14 space-y-6">
+            {offerings.map((offer, index) => (
+              <article
+                key={offer.id}
+                id={offer.id}
+                className="offer-card scroll-mt-32"
+              >
+                <div className="flex flex-wrap items-baseline gap-x-4 gap-y-2">
+                  <span className="font-[family-name:var(--font-body)] text-[0.65rem] uppercase tracking-[0.2em] text-terracotta">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="font-[family-name:var(--font-display)] text-2xl font-bold tracking-tight text-ink sm:text-3xl">
+                    {offer.title}
+                  </h3>
+                </div>
+                <div className="mt-5 space-y-4">
+                  {offer.body.map((paragraph) => (
+                    <p
+                      key={paragraph.slice(0, 48)}
+                      className="max-w-3xl font-[family-name:var(--font-body)] text-sm leading-relaxed text-[color:var(--fog)] sm:text-[0.95rem]"
+                    >
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 4) Lab */}
+      {/* Lab */}
       <section
         id="lab"
-        className="scroll-mt-28 border-t border-ink/10 px-5 py-24 sm:px-8 md:px-12 lg:px-16 lg:py-32"
+        className="scroll-mt-32 border-t border-ink/10 px-5 py-24 sm:px-8 md:px-12 lg:px-16 lg:py-32"
       >
         <div className="mx-auto max-w-4xl">
           <h2 className="font-[family-name:var(--font-display)] text-4xl font-black tracking-tight text-ink sm:text-5xl">
             Lab
           </h2>
           <p className="mt-5 max-w-lg font-[family-name:var(--font-body)] text-sm leading-relaxed text-[color:var(--fog)] sm:text-base">
-            Field · Products · Design — one company.
+            Field · Products · Design — under the Intercal Labs umbrella.
           </p>
           <div aria-hidden className="mt-7 h-px w-16 bg-terracotta" />
 
@@ -261,17 +267,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5) Work */}
+      {/* Work */}
       <section
         id="work"
-        className="scroll-mt-28 border-t border-ink/10 bg-ink px-5 py-24 text-cream sm:px-8 md:px-12 lg:px-16 lg:py-32"
+        className="scroll-mt-32 border-t border-ink/10 bg-ink px-5 py-24 text-cream sm:px-8 md:px-12 lg:px-16 lg:py-32"
       >
         <div className="mx-auto max-w-4xl">
           <h2 className="font-[family-name:var(--font-display)] text-4xl font-black tracking-tight sm:text-5xl">
             Work
           </h2>
           <p className="mt-5 max-w-xl font-[family-name:var(--font-body)] text-sm leading-relaxed text-cream/70 sm:text-base">
-            Capability in practice. Deeper samples live on the portfolio.
+            Capability lines. Deeper samples live on the portfolio.
           </p>
           <div aria-hidden className="mt-7 h-px w-16 bg-terracotta" />
 
@@ -301,10 +307,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 6) People */}
+      {/* People */}
       <section
         id="people"
-        className="scroll-mt-28 border-t border-ink/10 px-5 py-24 sm:px-8 md:px-12 lg:px-16 lg:py-32"
+        className="scroll-mt-32 border-t border-ink/10 px-5 py-24 sm:px-8 md:px-12 lg:px-16 lg:py-32"
       >
         <div className="mx-auto max-w-5xl">
           <h2 className="font-[family-name:var(--font-display)] text-4xl font-black tracking-tight text-ink sm:text-5xl">
@@ -371,10 +377,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 7) Contact */}
+      {/* Contact */}
       <section
         id="contact"
-        className="scroll-mt-28 border-t border-ink/10 bg-tan/30 px-5 py-24 sm:px-8 md:px-12 lg:px-16 lg:py-32"
+        className="scroll-mt-32 border-t border-ink/10 bg-tan/30 px-5 py-24 sm:px-8 md:px-12 lg:px-16 lg:py-32"
       >
         <div className="mx-auto max-w-4xl">
           <h2 className="font-[family-name:var(--font-display)] text-4xl font-black tracking-tight text-ink sm:text-5xl">
@@ -382,7 +388,7 @@ export default function Home() {
           </h2>
           <div aria-hidden className="mt-7 h-px w-16 bg-terracotta" />
           <p className="mt-10 font-[family-name:var(--font-body)] text-sm leading-relaxed text-[color:var(--fog)] sm:text-base">
-            Greater Houston / Deer Park area.
+            Greater Houston area.
           </p>
           <a
             href="mailto:info@intercallabs.com"
@@ -398,28 +404,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="border-t border-cream/10 bg-ink px-5 py-12 sm:px-8 md:px-12 lg:px-16">
-        <div className="mx-auto flex max-w-5xl flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex items-center gap-5">
-            <Image
-              src={assets.logo}
-              alt=""
-              width={140}
-              height={37}
-              className="h-8 w-auto opacity-90"
-            />
-            <p className="font-[family-name:var(--font-body)] text-[0.62rem] uppercase tracking-[0.16em] text-cream/55">
-              © {new Date().getFullYear()} Intercal Labs
-            </p>
-          </div>
-          <a
-            href="mailto:info@intercallabs.com"
-            className="font-[family-name:var(--font-body)] text-xs tracking-[0.04em] text-cream/70 underline decoration-terracotta/45 underline-offset-4 transition-colors hover:text-cream"
-          >
-            info@intercallabs.com
-          </a>
-        </div>
-      </footer>
+      <SiteFooter />
     </main>
   );
 }
