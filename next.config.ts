@@ -2,7 +2,13 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    // Local /public assets only — no remote brand CDN required.
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "raw.githubusercontent.com",
+        pathname: "/intercal-labs/Intercal/**",
+      },
+    ],
   },
 };
 
