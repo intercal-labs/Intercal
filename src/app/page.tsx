@@ -5,7 +5,7 @@ export default function Home() {
     <main className="relative isolate min-h-dvh overflow-hidden bg-ink text-mist">
       <div aria-hidden className="absolute inset-0 -z-10 overflow-hidden">
         <Image
-          src="/hero.jpg"
+          src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2400&q=80"
           alt=""
           fill
           priority
