@@ -20,12 +20,12 @@ export const metadata: Metadata = {
     template: "%s · Intercal Labs",
   },
   description:
-    "Hardware, firmware, software, field instrumentation & controls, and legacy retrofit — Greater Houston / Deer Park.",
+    "Hardware, firmware, software, and field I&C — Greater Houston. Custom builds, legacy retrofit, and IC-ND-1 in concept.",
   metadataBase: new URL("https://intercallabs.com"),
   openGraph: {
     title: "Intercal Labs",
     description:
-      "Hardware, firmware, software, field work, and legacy retrofit. Greater Houston / Deer Park.",
+      "Hardware. Firmware. Software. Field. Greater Houston lab.",
     url: "https://intercallabs.com",
     siteName: "Intercal Labs",
     type: "website",

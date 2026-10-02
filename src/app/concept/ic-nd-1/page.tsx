@@ -166,8 +166,7 @@ export default function IcNd1Page() {
             Talk to us
           </h2>
           <p className="mt-5 max-w-xl font-[family-name:var(--font-body)] text-sm leading-relaxed text-cream/70 sm:text-base">
-            Confident concept. Honest status. No fake ship dates. Email about
-            IC-ND-1 or pilot interest.
+            Concept status only. Email about IC-ND-1 or pilot interest.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <a
