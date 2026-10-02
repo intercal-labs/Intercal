@@ -308,14 +308,14 @@ export default function Home() {
             <article className="flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-8">
               <Image
                 src="/shay-rodriguez-garcia.webp"
-                alt="Shay Rodriguez-Garcia"
+                alt="Shay Rodriguez"
                 width={176}
                 height={234}
                 className="h-48 w-36 object-cover object-top contrast-[1.04] sm:h-52 sm:w-[9.5rem]"
               />
               <div>
                 <h3 className="font-[family-name:var(--font-display)] text-2xl font-bold tracking-tight text-ink sm:text-3xl">
-                  Shay Rodriguez-Garcia
+                  Shay Rodriguez
                 </h3>
                 <p className="mt-2 font-[family-name:var(--font-body)] text-[0.68rem] uppercase tracking-[0.16em] text-terracotta">
                   Founder &amp; CTO
