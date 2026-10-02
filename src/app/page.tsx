@@ -1,5 +1,16 @@
 import Image from "next/image";
 
+/** Production file deploys pull brand media from the branch when gitSource is unavailable. */
+const ASSET_BASE =
+  "https://raw.githubusercontent.com/intercal-labs/Intercal/cursor/intercal-labs-splash-v1/public";
+
+const assets = {
+  logo: `${ASSET_BASE}/intercal-labs-logo.png`,
+  hero: `${ASSET_BASE}/hero-lab.webp`,
+  shay: `${ASSET_BASE}/shay-rodriguez-garcia.webp`,
+  taylor: `${ASSET_BASE}/taylor-rodriguez.webp`,
+} as const;
+
 const navLinks = [
   { href: "#work-we-do", label: "Work" },
   { href: "#capabilities", label: "Capabilities" },
@@ -51,7 +62,7 @@ export default function Home() {
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-3.5 sm:px-8 lg:px-12">
           <a href="/" className="shrink-0" aria-label="Intercal Labs home">
             <Image
-              src="/intercal-labs-logo.png"
+              src={assets.logo}
               alt="Intercal Labs"
               width={220}
               height={58}
@@ -103,7 +114,7 @@ export default function Home() {
       <section className="relative isolate min-h-[calc(100dvh-4.75rem)] overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <Image
-            src="/hero-lab.webp"
+            src={assets.hero}
             alt=""
             fill
             priority
@@ -117,7 +128,7 @@ export default function Home() {
           <div className="w-full max-w-2xl">
             <div className="reveal-brand">
               <Image
-                src="/intercal-labs-logo.png"
+                src={assets.logo}
                 alt="Intercal Labs"
                 width={760}
                 height={200}
@@ -307,7 +318,7 @@ export default function Home() {
           <div className="mt-16 grid gap-16 lg:grid-cols-2 lg:gap-20">
             <article className="flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-8">
               <Image
-                src="/shay-rodriguez-garcia.webp"
+                src={assets.shay}
                 alt="Shay Rodriguez"
                 width={176}
                 height={234}
@@ -337,7 +348,7 @@ export default function Home() {
 
             <article className="flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-8">
               <Image
-                src="/taylor-rodriguez.webp"
+                src={assets.taylor}
                 alt="Taylor Rodriguez"
                 width={176}
                 height={234}
@@ -391,7 +402,7 @@ export default function Home() {
         <div className="mx-auto flex max-w-5xl flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-5">
             <Image
-              src="/intercal-labs-logo.png"
+              src={assets.logo}
               alt=""
               width={140}
               height={37}
