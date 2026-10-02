@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { Barlow_Condensed, Source_Sans_3 } from "next/font/google";
+import { Bodoni_Moda, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
-const display = Barlow_Condensed({
+const display = Bodoni_Moda({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800", "900"],
 });
 
-const body = Source_Sans_3({
+const body = IBM_Plex_Mono({
   variable: "--font-body",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],

@@ -1,31 +1,42 @@
 @import "tailwindcss";
 
 :root {
-  --ink: #0c1014;
-  --steel: #1a222c;
-  --panel: #12181f;
-  --mist: #e8ecef;
-  --fog: rgba(232, 236, 239, 0.78);
-  --brass: #b08d57;
-  --brass-deep: #8f7344;
-  --background: var(--ink);
-  --foreground: var(--mist);
+  --cream: #e8d5b5;
+  --tan: #d6c2a6;
+  --tan-deep: #d6c2a5;
+  --scarlet: #ff2400;
+  --scarlet-deep: #d91f00;
+  --terracotta: #c66b4e;
+  --ink: #1a1f24;
+  --ink-soft: #2a3138;
+  --fog: rgba(26, 31, 36, 0.72);
+  --mist: rgba(232, 213, 181, 0.82);
+  --background: var(--cream);
+  --foreground: var(--ink);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-cream: var(--cream);
+  --color-tan: var(--tan);
+  --color-tan-deep: var(--tan-deep);
+  --color-scarlet: var(--scarlet);
+  --color-scarlet-deep: var(--scarlet-deep);
+  --color-terracotta: var(--terracotta);
   --color-ink: var(--ink);
-  --color-steel: var(--steel);
-  --color-mist: var(--mist);
-  --color-brass: var(--brass);
-  --color-brass-deep: var(--brass-deep);
+  --color-ink-soft: var(--ink-soft);
   --font-sans: var(--font-body);
   --font-display: var(--font-display);
+  --font-mono: var(--font-body);
 }
 
 * {
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 html,
@@ -35,9 +46,13 @@ body {
 
 body {
   margin: 0;
-  background: var(--ink);
-  color: var(--mist);
-  font-family: var(--font-body), "Segoe UI", sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-body), ui-monospace, monospace;
+}
+
+a {
+  color: inherit;
 }
 
 @keyframes atmosphere-shift {
@@ -69,12 +84,23 @@ body {
   }
 }
 
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 0.75rem, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
 .hero-atmosphere {
   background-color: var(--ink);
   background-image:
-    linear-gradient(115deg, #0a0e12 0%, #141c24 42%, #0f151b 72%, #0c1014 100%),
-    radial-gradient(ellipse 70% 55% at 78% 38%, rgba(176, 141, 87, 0.16), transparent 62%),
-    radial-gradient(ellipse 55% 45% at 18% 78%, rgba(58, 78, 96, 0.28), transparent 70%);
+    linear-gradient(118deg, #14181c 0%, #1a1f24 38%, #222930 68%, #1a1f24 100%),
+    radial-gradient(ellipse 65% 50% at 82% 28%, rgba(255, 36, 0, 0.14), transparent 62%),
+    radial-gradient(ellipse 55% 45% at 12% 78%, rgba(198, 107, 78, 0.18), transparent 70%);
   background-size: 100% 100%, 140% 140%, 130% 130%;
   animation: atmosphere-shift 22s ease-in-out alternate infinite;
 }
@@ -88,8 +114,8 @@ body {
 
 .hero-grid {
   background-image:
-    linear-gradient(rgba(232, 236, 239, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(232, 236, 239, 0.05) 1px, transparent 1px);
+    linear-gradient(rgba(232, 213, 181, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(232, 213, 181, 0.05) 1px, transparent 1px);
   background-size: 64px 64px;
   mask-image: radial-gradient(ellipse 75% 70% at 70% 40%, black 20%, transparent 75%);
   pointer-events: none;
@@ -112,12 +138,56 @@ body {
   animation: line-draw 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.45s both;
 }
 
+.section-reveal {
+  animation: fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.stagger-rules {
+  display: flex;
+  flex-direction: column;
+  gap: 0.28rem;
+}
+
+.stagger-rules span {
+  display: block;
+  height: 1px;
+  background: var(--terracotta);
+  transform-origin: left center;
+}
+
+.stagger-rules span:nth-child(1) {
+  width: 100%;
+  animation: line-draw 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.5s both;
+}
+.stagger-rules span:nth-child(2) {
+  width: 92%;
+  animation: line-draw 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.58s both;
+}
+.stagger-rules span:nth-child(3) {
+  width: 84%;
+  animation: line-draw 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.66s both;
+}
+.stagger-rules span:nth-child(4) {
+  width: 74%;
+  animation: line-draw 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.74s both;
+}
+.stagger-rules span:nth-child(5) {
+  width: 62%;
+  animation: line-draw 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.82s both;
+}
+
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .hero-atmosphere,
   .reveal-brand,
   .reveal-tagline,
   .reveal-cta,
-  .brand-rule {
+  .brand-rule,
+  .section-reveal,
+  .stagger-rules span {
     animation: none;
   }
 }
