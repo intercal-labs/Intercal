@@ -29,20 +29,18 @@ export function SiteHeader({ active = "home" }: SiteHeaderProps) {
 
   return (
     <header
-      className={`nav-shell sticky top-0 z-50 border-b backdrop-blur-md transition-[background-color,border-color,box-shadow] duration-300 ${
-        scrolled
-          ? "border-ink/15 bg-cream/95 shadow-[0_1px_0_rgba(26,31,36,0.06)]"
-          : "border-cream/15 bg-ink"
+      className={`nav-shell sticky top-0 z-50 border-b border-cream/20 bg-ink backdrop-blur-md transition-[box-shadow] duration-300 ${
+        scrolled ? "shadow-[0_8px_28px_rgba(0,0,0,0.35)]" : ""
       }`}
     >
-      <div className="mx-auto flex max-w-[90rem] items-center justify-between gap-5 px-5 py-3 sm:gap-8 sm:px-8 sm:py-3.5 lg:px-12">
+      <div className="mx-auto flex max-w-[90rem] items-center justify-between gap-4 px-4 py-2.5 sm:gap-6 sm:px-8 sm:py-3 lg:px-12">
         <a href="/" className="shrink-0" aria-label="Intercal Labs home">
           <Image
             src={assets.logo}
             alt="Intercal Labs"
-            width={320}
-            height={86}
-            className="h-12 w-auto sm:h-14 lg:h-16 xl:h-[4.5rem]"
+            width={480}
+            height={100}
+            className="h-12 w-auto sm:h-14 lg:h-16 xl:h-[4.75rem]"
             priority
           />
         </a>
@@ -55,14 +53,8 @@ export function SiteHeader({ active = "home" }: SiteHeaderProps) {
               <a
                 key={link.href}
                 href={link.href}
-                className={`font-[family-name:var(--font-body)] text-[0.72rem] font-medium uppercase tracking-[0.14em] transition-colors duration-200 ${
-                  scrolled
-                    ? isConcept
-                      ? "text-scarlet"
-                      : "text-ink hover:text-scarlet"
-                    : isConcept
-                      ? "text-scarlet"
-                      : "text-[color:var(--cream)] hover:text-scarlet"
+                className={`nav-link font-[family-name:var(--font-body)] text-[0.74rem] font-semibold uppercase tracking-[0.14em] transition-colors duration-200 ${
+                  isConcept ? "is-active" : ""
                 }`}
               >
                 {link.label}
@@ -73,9 +65,7 @@ export function SiteHeader({ active = "home" }: SiteHeaderProps) {
 
         <a
           href="mailto:info@intercallabs.com"
-          className={`btn shrink-0 ${
-            scrolled ? "btn-primary" : "btn-nav-top"
-          }`}
+          className="btn btn-nav-top shrink-0"
         >
           Contact
         </a>
@@ -83,19 +73,13 @@ export function SiteHeader({ active = "home" }: SiteHeaderProps) {
 
       <nav
         aria-label="Sections"
-        className={`flex gap-5 overflow-x-auto border-t px-5 py-2.5 xl:hidden sm:px-8 ${
-          scrolled ? "border-ink/10" : "border-cream/12"
-        }`}
+        className="flex gap-5 overflow-x-auto border-t border-cream/15 px-4 py-2.5 xl:hidden sm:px-8"
       >
         {navLinks.map((link) => (
           <a
             key={link.href}
             href={link.href}
-            className={`shrink-0 font-[family-name:var(--font-body)] text-[0.68rem] font-medium uppercase tracking-[0.14em] transition-colors ${
-              scrolled
-                ? "text-ink/85 hover:text-scarlet"
-                : "text-[color:var(--cream)] hover:text-scarlet"
-            }`}
+            className="nav-link shrink-0 font-[family-name:var(--font-body)] text-[0.7rem] font-semibold uppercase tracking-[0.14em] transition-colors"
           >
             {link.label}
           </a>

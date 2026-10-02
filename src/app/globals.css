@@ -98,16 +98,17 @@ a {
   transform: translateY(-1px);
 }
 
-/* Unscrolled nav CTA: cream fill on ink bar — max contrast */
+/* Nav CTA: cream fill + ink type on ink bar — max contrast */
 .btn-nav-top {
   background: var(--cream);
   border-color: var(--cream);
   color: var(--ink);
+  font-weight: 700;
 }
 
 .btn-nav-top:hover {
-  background: var(--tan);
-  border-color: var(--tan);
+  background: #fff1d8;
+  border-color: #fff1d8;
   color: var(--ink);
   transform: translateY(-1px);
 }
@@ -332,6 +333,16 @@ a {
     background-color 0.3s ease,
     border-color 0.3s ease,
     box-shadow 0.3s ease;
+}
+
+/* Explicit nav link contrast — do not rely on utility opacity modifiers */
+.nav-shell .nav-link {
+  color: var(--cream) !important;
+}
+
+.nav-shell .nav-link:hover,
+.nav-shell .nav-link.is-active {
+  color: var(--scarlet) !important;
 }
 
 /* Photo break — industrial studio */

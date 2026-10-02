@@ -37,9 +37,9 @@ export default function Home() {
               <Image
                 src={assets.logo}
                 alt="Intercal Labs"
-                width={820}
-                height={220}
-                className="h-auto w-full max-w-[min(100%,30rem)] sm:max-w-[34rem]"
+                width={900}
+                height={186}
+                className="h-auto w-full max-w-[min(100%,34rem)] sm:max-w-[40rem]"
                 priority
               />
             </div>

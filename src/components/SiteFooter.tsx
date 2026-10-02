@@ -9,9 +9,9 @@ export function SiteFooter() {
           <Image
             src={assets.logo}
             alt="Intercal Labs"
-            width={200}
-            height={54}
-            className="h-12 w-auto sm:h-14"
+            width={280}
+            height={58}
+            className="h-11 w-auto sm:h-12"
           />
           <p className="font-[family-name:var(--font-body)] text-[0.65rem] uppercase tracking-[0.16em] text-cream/55">
             © {new Date().getFullYear()} Intercal Labs
