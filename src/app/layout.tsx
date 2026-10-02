@@ -17,12 +17,12 @@ const body = IBM_Plex_Mono({
 export const metadata: Metadata = {
   title: "Intercal Labs",
   description:
-    "Instrumentation, controls, and custom electronics — built and supported in the field.",
+    "We design and build hardware, firmware, and software. Field, Products, and Design — Greater Houston.",
   metadataBase: new URL("https://intercallabs.com"),
   openGraph: {
     title: "Intercal Labs",
     description:
-      "Instrumentation, controls, and custom electronics — built and supported in the field.",
+      "We design and build hardware, firmware, and software. Field, Products, and Design — Greater Houston.",
     url: "https://intercallabs.com",
     siteName: "Intercal Labs",
     type: "website",
