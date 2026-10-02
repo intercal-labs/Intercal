@@ -33,14 +33,14 @@ export function SiteHeader({ active = "home" }: SiteHeaderProps) {
         scrolled ? "shadow-[0_8px_28px_rgba(0,0,0,0.35)]" : ""
       }`}
     >
-      <div className="mx-auto flex max-w-[90rem] items-center justify-between gap-4 px-4 py-2.5 sm:gap-6 sm:px-8 sm:py-3 lg:px-12">
+      <div className="mx-auto flex max-w-[90rem] items-center justify-between gap-4 px-4 py-2 sm:gap-6 sm:px-8 sm:py-2.5 lg:px-12">
         <a href="/" className="shrink-0" aria-label="Intercal Labs home">
           <Image
-            src={assets.logo}
-            alt="Intercal Labs"
-            width={480}
-            height={100}
-            className="h-12 w-auto sm:h-14 lg:h-16 xl:h-[4.75rem]"
+            src={assets.logoNav}
+            alt="Intercal"
+            width={912}
+            height={158}
+            className="h-14 w-auto sm:h-16 lg:h-[4.5rem] xl:h-[4.75rem]"
             priority
           />
         </a>
