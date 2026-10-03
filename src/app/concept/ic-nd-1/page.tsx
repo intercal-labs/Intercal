@@ -42,7 +42,7 @@ const capabilities = [
 
 export default function IcNd1Page() {
   return (
-    <main className="bg-cream text-ink">
+    <main className="min-w-0 max-w-[100%] overflow-x-hidden bg-cream text-ink">
       <SiteHeader active="concept" />
 
       <section className="relative overflow-hidden px-5 py-20 sm:px-8 md:px-12 lg:px-16 lg:py-28">
