@@ -372,6 +372,30 @@ a {
   color: var(--scarlet) !important;
 }
 
+/* Desktop primary nav + CTA — md+; toggles/drawer hidden there (see media queries) */
+.nav-desktop {
+  display: none;
+}
+
+.nav-desktop-cta {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .nav-desktop {
+    display: flex;
+  }
+
+  .nav-desktop-cta {
+    display: block;
+  }
+
+  .nav-menu-toggle,
+  .nav-drawer {
+    display: none !important;
+  }
+}
+
 .nav-menu-toggle {
   display: inline-flex;
   align-items: center;
@@ -387,6 +411,12 @@ a {
   transition:
     border-color 0.2s ease,
     background-color 0.2s ease;
+}
+
+@media (max-width: 767px) {
+  .nav-menu-toggle {
+    display: inline-flex;
+  }
 }
 
 .nav-menu-toggle:hover {
@@ -444,24 +474,19 @@ a {
 }
 
 .nav-drawer {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  display: none;
   background: var(--ink);
 }
 
-.nav-drawer > nav {
-  overflow: hidden;
-  min-height: 0;
-  visibility: hidden;
-}
+@media (max-width: 767px) {
+  .nav-drawer.is-open {
+    display: block;
+  }
 
-.nav-drawer.is-open {
-  grid-template-rows: 1fr;
-}
-
-.nav-drawer.is-open > nav {
-  visibility: visible;
+  .nav-drawer > nav {
+    overflow: visible;
+    min-height: 0;
+  }
 }
 
 .sr-only {

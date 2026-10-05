@@ -29,6 +29,15 @@ export function SiteHeader({ active = "home" }: SiteHeaderProps) {
   }, []);
 
   useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px)");
+    const onViewportChange = () => {
+      if (mq.matches) setMenuOpen(false);
+    };
+    mq.addEventListener("change", onViewportChange);
+    return () => mq.removeEventListener("change", onViewportChange);
+  }, []);
+
+  useEffect(() => {
     if (!menuOpen) return;
 
     const onKey = (event: KeyboardEvent) => {
@@ -52,7 +61,7 @@ export function SiteHeader({ active = "home" }: SiteHeaderProps) {
         scrolled ? "shadow-[0_8px_28px_rgba(0,0,0,0.35)]" : ""
       }`}
     >
-      <div className="mx-auto flex w-full max-w-[90rem] min-w-0 items-center justify-between gap-3 px-4 py-2.5 sm:gap-6 sm:px-8 sm:py-2.5 lg:px-12">
+      <div className="mx-auto flex w-full max-w-[90rem] min-w-0 items-center justify-between gap-3 px-4 py-2 sm:gap-6 sm:px-8 sm:py-2.5 lg:px-12">
         <a
           href="/"
           className="nav-logo-link min-w-0 shrink"
@@ -71,7 +80,7 @@ export function SiteHeader({ active = "home" }: SiteHeaderProps) {
 
         <nav
           aria-label="Primary"
-          className="hidden min-w-0 items-center gap-6 lg:gap-7 xl:flex"
+          className="nav-desktop hidden min-w-0 items-center gap-5 md:gap-6 lg:gap-7"
         >
           {navLinks.map((link) => {
             const isConcept =
@@ -91,7 +100,7 @@ export function SiteHeader({ active = "home" }: SiteHeaderProps) {
         </nav>
 
         <div className="flex shrink-0 items-center gap-2 sm:gap-3">
-          <div className="hidden sm:block">
+          <div className="nav-desktop-cta hidden">
             <a
               href="mailto:info@intercallabs.com"
               className="btn btn-nav-top"
@@ -102,7 +111,7 @@ export function SiteHeader({ active = "home" }: SiteHeaderProps) {
 
           <button
             type="button"
-            className="nav-menu-toggle xl:hidden"
+            className="nav-menu-toggle"
             aria-expanded={menuOpen}
             aria-controls={menuId}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
@@ -122,7 +131,7 @@ export function SiteHeader({ active = "home" }: SiteHeaderProps) {
 
       <div
         id={menuId}
-        className={`nav-drawer xl:hidden ${menuOpen ? "is-open" : ""}`}
+        className={`nav-drawer ${menuOpen ? "is-open" : ""}`}
         aria-hidden={!menuOpen}
       >
         <nav
