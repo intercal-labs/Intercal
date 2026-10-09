@@ -4,32 +4,18 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { assets } from "@/lib/assets";
 
-type PlantClip = {
-  src: string;
-  poster: string;
-  alt: string;
-};
-
-const clips: PlantClip[] = [
-  {
-    src: assets.plant1Video,
-    poster: assets.plant1Poster,
-    alt: "Industrial plant instrumentation and controls",
-  },
-  {
-    src: assets.plant2Video,
-    poster: assets.plant2Poster,
-    alt: "On-site field instrumentation work",
-  },
-];
-
 /**
- * Editorial plant clips: muted, playsInline, autoplay when in view,
- * pause when off-screen. Plays once per enter (calm cadence).
- * prefers-reduced-motion and load errors keep poster stills only.
+ * Field I&C editorial media: one muted Houston plant clip.
+ * Autoplay when in view, pause off-screen, play once per enter.
+ * prefers-reduced-motion and load errors keep the poster still only.
  */
 export function FieldPlantMedia() {
+  const frameRef = useRef<HTMLDivElement | null>(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
   const [allowVideo, setAllowVideo] = useState(false);
+  const [inView, setInView] = useState(false);
+  const [videoFailed, setVideoFailed] = useState(false);
+  const playedThisEnter = useRef(false);
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -38,41 +24,6 @@ export function FieldPlantMedia() {
     mq.addEventListener("change", sync);
     return () => mq.removeEventListener("change", sync);
   }, []);
-
-  return (
-    <div className="field-media grid gap-4 sm:gap-5 lg:grid-cols-12 lg:gap-6">
-      <PlantFrame
-        clip={clips[0]}
-        allowVideo={allowVideo}
-        className="lg:col-span-7"
-        aspectClass="aspect-[4/3] sm:aspect-[16/11]"
-      />
-      <PlantFrame
-        clip={clips[1]}
-        allowVideo={allowVideo}
-        className="lg:col-span-5 lg:mt-16"
-        aspectClass="aspect-[4/3] sm:aspect-[4/5] lg:aspect-[3/4]"
-      />
-    </div>
-  );
-}
-
-function PlantFrame({
-  clip,
-  allowVideo,
-  className,
-  aspectClass,
-}: {
-  clip: PlantClip;
-  allowVideo: boolean;
-  className?: string;
-  aspectClass: string;
-}) {
-  const frameRef = useRef<HTMLDivElement | null>(null);
-  const videoRef = useRef<HTMLVideoElement | null>(null);
-  const [inView, setInView] = useState(false);
-  const [videoFailed, setVideoFailed] = useState(false);
-  const playedThisEnter = useRef(false);
 
   useEffect(() => {
     const node = frameRef.current;
@@ -110,15 +61,13 @@ function PlantFrame({
   const showVideo = allowVideo && !videoFailed;
 
   return (
-    <div ref={frameRef} className={`field-frame min-w-0 ${className ?? ""}`}>
-      <div
-        className={`relative overflow-hidden bg-tan/40 ${aspectClass}`}
-      >
+    <div ref={frameRef} className="field-media min-w-0">
+      <div className="field-frame relative aspect-[16/11] overflow-hidden bg-tan/40 sm:aspect-[16/10] lg:aspect-[3/2]">
         <Image
-          src={clip.poster}
-          alt={clip.alt}
+          src={assets.fieldHoustonPoster}
+          alt="Industrial plant instrumentation and controls — Greater Houston"
           fill
-          sizes="(max-width: 1024px) 92vw, 48vw"
+          sizes="(max-width: 1024px) 92vw, 55vw"
           className="field-still object-cover"
         />
 
@@ -129,7 +78,7 @@ function PlantFrame({
             muted
             playsInline
             preload="metadata"
-            poster={clip.poster}
+            poster={assets.fieldHoustonPoster}
             aria-hidden
             onEnded={() => {
               const el = videoRef.current;
@@ -137,7 +86,7 @@ function PlantFrame({
             }}
             onError={() => setVideoFailed(true)}
           >
-            <source src={clip.src} type="video/mp4" />
+            <source src={assets.fieldHoustonVideo} type="video/mp4" />
           </video>
         ) : null}
 

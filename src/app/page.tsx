@@ -140,7 +140,7 @@ export default function Home() {
           I&amp;C
         </div>
         <div className="relative mx-auto max-w-[90rem]">
-          <div className="grid gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.15fr)] lg:items-start lg:gap-16 xl:gap-20">
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.4fr)] lg:items-center lg:gap-14 xl:gap-18">
             <div className="min-w-0 max-w-xl">
               <p className="font-[family-name:var(--font-body)] text-[0.7rem] uppercase tracking-[0.22em] text-terracotta">
                 Field services

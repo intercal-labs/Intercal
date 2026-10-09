@@ -10,11 +10,9 @@ export const assets = {
   hero: `${ASSET_BASE}/hero-lab.webp`,
   // Same-origin MP4 so the hero streams from the deploy CDN (not GitHub raw).
   heroVideo: "/video-hero.mp4",
-  // Field I&C plant clips + first-frame posters — same-origin CDN.
-  plant1Video: "/plant1_compressed.mp4",
-  plant2Video: "/plant2_compressed.mp4",
-  plant1Poster: "/plant1-poster.webp",
-  plant2Poster: "/plant2-poster.webp",
+  // Field I&C Houston plant clip + poster — same-origin CDN.
+  fieldHoustonVideo: "/houston-texas.mp4",
+  fieldHoustonPoster: "/houston-texas-poster.webp",
   shay: `${ASSET_BASE}/shay-rodriguez-garcia.webp`,
   taylor: `${ASSET_BASE}/taylor-rodriguez.webp`,
 } as const;

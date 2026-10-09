@@ -518,7 +518,11 @@ a {
     );
 }
 
-/* Field plant media — editorial frames, no player chrome */
+/* Field plant media — single editorial plane, no player chrome */
+.field-media {
+  width: 100%;
+}
+
 .field-still {
   filter: contrast(1.05) saturate(0.9) brightness(0.92);
 }
