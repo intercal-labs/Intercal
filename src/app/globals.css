@@ -198,6 +198,12 @@ a {
   transform: scale(1.03);
 }
 
+.hero-video {
+  /* Override global video { max-width: 100% } so object-cover can fill the plane */
+  max-width: none;
+  pointer-events: none;
+}
+
 .hero-veil {
   background:
     linear-gradient(
@@ -544,6 +550,11 @@ a {
 
   .hero-photo {
     transform: none;
+  }
+
+  /* Still poster only — do not autoplay the cinematic loop */
+  .hero-video {
+    display: none !important;
   }
 
   .btn-primary:hover,

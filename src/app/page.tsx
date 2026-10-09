@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { HeroMedia } from "@/components/HeroMedia";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { assets } from "@/lib/assets";
@@ -58,17 +59,7 @@ export default function Home() {
 
       {/* Hero — brand, one line, one CTA */}
       <section className="relative isolate min-h-[calc(100dvh-5.5rem)] overflow-hidden">
-        <div className="absolute inset-0 -z-10 overflow-hidden">
-          <Image
-            src={assets.hero}
-            alt=""
-            fill
-            priority
-            sizes="100vw"
-            className="hero-photo hero-photo-motion object-cover object-[52%_28%] sm:object-[58%_32%]"
-          />
-          <div aria-hidden className="hero-veil absolute inset-0" />
-        </div>
+        <HeroMedia />
 
         <div className="relative flex min-h-[calc(100dvh-5.5rem)] w-full max-w-[100%] items-end px-5 pb-12 pt-20 sm:items-center sm:px-8 sm:pb-20 sm:pt-28 lg:px-16 lg:pb-24">
           <div className="w-full min-w-0 max-w-2xl">
