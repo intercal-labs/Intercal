@@ -3,14 +3,17 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 
 export const metadata: Metadata = {
-  title: "IC-ND-1 — Intercal Labs",
+  title: "IC-ND-1",
   description:
     "IC-ND-1 (Node-1): parallel loop integrity monitor for existing 4–20 mA / HART loops. Concept in development — not for sale.",
   openGraph: {
-    title: "IC-ND-1 — Intercal Labs",
+    title: "IC-ND-1 · Intercal Labs LLC",
     description:
       "Parallel high-Z loop integrity monitor for stranded HART and independent loop checks. Concept · in development.",
     url: "https://intercallabs.com/concept/ic-nd-1",
+  },
+  twitter: {
+    title: "IC-ND-1 · Intercal Labs LLC",
   },
 };
 
