@@ -6,6 +6,7 @@ import { assets } from "@/lib/assets";
 
 const navLinks = [
   { href: "/#about", label: "About" },
+  { href: "/#field", label: "Field" },
   { href: "/#offerings", label: "Offerings" },
   { href: "/concept/ic-nd-1", label: "IC-ND-1" },
   { href: "/#people", label: "People" },

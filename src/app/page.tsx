@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { FieldPlantMedia } from "@/components/FieldPlantMedia";
 import { HeroMedia } from "@/components/HeroMedia";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -123,6 +124,45 @@ export default function Home() {
               Based in the Greater Houston area. One lab. Clear scope. No home
               address on the site — email is the door.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Field I&C — media highlight; Offerings stay lean */}
+      <section
+        id="field"
+        className="field-section scroll-mt-36 relative overflow-hidden border-t border-ink/10 px-5 py-24 sm:px-8 md:px-12 lg:px-16 lg:py-32"
+      >
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -left-6 bottom-10 select-none font-[family-name:var(--font-display)] text-[clamp(5rem,14vw,11rem)] font-black leading-none tracking-tight text-ink/[0.045]"
+        >
+          I&amp;C
+        </div>
+        <div className="relative mx-auto max-w-[90rem]">
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.15fr)] lg:items-start lg:gap-16 xl:gap-20">
+            <div className="min-w-0 max-w-xl">
+              <p className="font-[family-name:var(--font-body)] text-[0.7rem] uppercase tracking-[0.22em] text-terracotta">
+                Field services
+              </p>
+              <div aria-hidden className="rule-craft mt-6 w-20" />
+              <h2 className="mt-8 font-[family-name:var(--font-display)] text-[clamp(2rem,4.6vw,3.75rem)] font-black leading-[1.05] tracking-tight text-ink">
+                Intercal Instrumentation and Controls
+              </h2>
+              <p className="mt-7 font-[family-name:var(--font-body)] text-base leading-relaxed text-[color:var(--fog)] sm:text-lg">
+                On-site I&amp;C across Greater Houston — calibration, loop
+                checks, commissioning, and low-voltage controls work where the
+                plant runs.
+              </p>
+              <a
+                href="mailto:info@intercallabs.com"
+                className="btn btn-ink mt-10"
+              >
+                Talk field work
+              </a>
+            </div>
+
+            <FieldPlantMedia />
           </div>
         </div>
       </section>
