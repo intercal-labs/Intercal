@@ -13,9 +13,14 @@ export function SiteFooter() {
             height={58}
             className="h-9 w-auto max-w-full sm:h-12"
           />
-          <p className="font-[family-name:var(--font-body)] text-[0.65rem] uppercase tracking-[0.16em] text-cream/55">
-            © {new Date().getFullYear()} Intercal Labs
-          </p>
+          <div className="flex flex-col gap-1.5">
+            <p className="font-[family-name:var(--font-body)] text-[0.65rem] uppercase tracking-[0.16em] text-cream/55">
+              © {new Date().getFullYear()} Intercal Labs LLC
+            </p>
+            <p className="font-[family-name:var(--font-body)] text-[0.6rem] tracking-[0.02em] text-cream/40">
+              A Texas limited liability company.
+            </p>
+          </div>
         </div>
         <a
           href="mailto:info@intercallabs.com"
