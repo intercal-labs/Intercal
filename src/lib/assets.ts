@@ -13,6 +13,4 @@ export const assets = {
   // Field I&C HTX plant clip + poster — same-origin CDN.
   fieldHoustonVideo: "/htx_compressed.mp4",
   fieldHoustonPoster: "/htx-compressed-poster.webp",
-  shay: `${ASSET_BASE}/shay-rodriguez-garcia.webp`,
-  taylor: `${ASSET_BASE}/taylor-rodriguez.webp`,
 } as const;

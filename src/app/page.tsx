@@ -1,9 +1,7 @@
-import Image from "next/image";
 import { FieldPlantMedia } from "@/components/FieldPlantMedia";
 import { HeroMedia } from "@/components/HeroMedia";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
-import { assets } from "@/lib/assets";
 
 const offerings = [
   {
@@ -221,81 +219,6 @@ export default function Home() {
             <a href="/concept/ic-nd-1" className="btn btn-ink mt-8">
               Read the concept
             </a>
-          </div>
-        </div>
-      </section>
-
-      {/* People */}
-      <section
-        id="people"
-        className="scroll-mt-36 border-t border-ink/10 px-5 py-24 sm:px-8 md:px-12 lg:px-16 lg:py-32"
-      >
-        <div className="mx-auto max-w-[90rem]">
-          <div className="mb-16 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <h2 className="font-[family-name:var(--font-display)] text-4xl font-semibold tracking-[-0.03em] text-ink sm:text-5xl">
-              People
-            </h2>
-            <p className="font-[family-name:var(--font-body)] text-sm tracking-[-0.01em] text-[color:var(--fog)]">
-              Two owners. Clear lanes.
-            </p>
-          </div>
-
-          <div className="grid gap-20 lg:grid-cols-2 lg:gap-8">
-            <article className="group">
-              <div className="relative aspect-[4/5] max-w-md overflow-hidden bg-tan/60">
-                <Image
-                  src={assets.shay}
-                  alt="Shay Rodriguez"
-                  fill
-                  sizes="(max-width: 1024px) 90vw, 40vw"
-                  className="object-cover object-top contrast-[1.06] transition-transform duration-700 group-hover:scale-[1.03]"
-                />
-              </div>
-              <div className="mt-8 max-w-md">
-                <h3 className="font-[family-name:var(--font-display)] text-3xl font-semibold tracking-[-0.03em] text-ink sm:text-4xl">
-                  Shay Rodriguez
-                </h3>
-                <p className="mt-2 font-[family-name:var(--font-body)] text-[0.6875rem] font-medium uppercase tracking-[0.14em] text-terracotta">
-                  Founder &amp; CTO
-                </p>
-                <p className="mt-5 font-[family-name:var(--font-body)] text-sm leading-[1.65] tracking-[-0.01em] text-[color:var(--fog)] sm:text-base">
-                  Industrial hardware, firmware, instruments, and software. Owns
-                  the product and custom build work.
-                </p>
-                <a
-                  href="https://shay-rodriguez.vercel.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-6 inline-block font-[family-name:var(--font-body)] text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-scarlet underline decoration-scarlet/35 underline-offset-4 transition-colors hover:text-scarlet-deep"
-                >
-                  Portfolio
-                </a>
-              </div>
-            </article>
-
-            <article className="group lg:mt-24">
-              <div className="relative aspect-[4/5] max-w-md overflow-hidden bg-tan/60 lg:ml-auto">
-                <Image
-                  src={assets.taylor}
-                  alt="Taylor Rodriguez"
-                  fill
-                  sizes="(max-width: 1024px) 90vw, 40vw"
-                  className="object-cover object-top contrast-[1.06] transition-transform duration-700 group-hover:scale-[1.03]"
-                />
-              </div>
-              <div className="mt-8 max-w-md lg:ml-auto lg:text-right">
-                <h3 className="font-[family-name:var(--font-display)] text-3xl font-semibold tracking-[-0.03em] text-ink sm:text-4xl">
-                  Taylor Rodriguez
-                </h3>
-                <p className="mt-2 font-[family-name:var(--font-body)] text-[0.6875rem] font-medium uppercase tracking-[0.14em] text-terracotta">
-                  COO · Web &amp; Finance
-                </p>
-                <p className="mt-5 font-[family-name:var(--font-body)] text-sm leading-[1.65] tracking-[-0.01em] text-[color:var(--fog)] sm:text-base">
-                  Web clients, intake, and company finances. Main contact for the
-                  web line.
-                </p>
-              </div>
-            </article>
           </div>
         </div>
       </section>

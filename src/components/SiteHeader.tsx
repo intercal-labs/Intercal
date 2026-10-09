@@ -9,7 +9,6 @@ const navLinks = [
   { href: "/#field", label: "Field" },
   { href: "/#offerings", label: "Offerings" },
   { href: "/concept/ic-nd-1", label: "IC-ND-1" },
-  { href: "/#people", label: "People" },
   { href: "/#contact", label: "Contact" },
 ] as const;
 
