@@ -48,18 +48,18 @@ export default function IcNd1Page() {
       <section className="relative overflow-hidden px-5 py-20 sm:px-8 md:px-12 lg:px-16 lg:py-28">
         <div
           aria-hidden
-          className="pointer-events-none absolute -right-4 top-10 select-none font-[family-name:var(--font-display)] text-[clamp(5rem,16vw,12rem)] font-black leading-none tracking-tight text-ink/[0.04]"
+          className="pointer-events-none absolute -right-4 top-10 select-none font-[family-name:var(--font-display)] text-[clamp(5rem,16vw,12rem)] font-semibold leading-none tracking-[-0.05em] text-ink/[0.035]"
         >
           ND-1
         </div>
         <div className="relative mx-auto max-w-[90rem]">
-          <p className="font-[family-name:var(--font-body)] text-[0.7rem] uppercase tracking-[0.22em] text-terracotta">
+          <p className="font-[family-name:var(--font-body)] text-[0.6875rem] font-medium uppercase tracking-[0.18em] text-terracotta">
             Concept
           </p>
-          <h1 className="mt-5 font-[family-name:var(--font-display)] text-[clamp(3.5rem,10vw,8rem)] font-black leading-[0.9] tracking-tight text-ink">
+          <h1 className="mt-5 font-[family-name:var(--font-display)] text-[clamp(3.5rem,10vw,8rem)] font-semibold leading-[0.9] tracking-[-0.04em] text-ink">
             IC-ND-1
           </h1>
-          <p className="mt-4 font-[family-name:var(--font-display)] text-xl font-bold tracking-tight text-ink/55 sm:text-2xl">
+          <p className="mt-4 font-[family-name:var(--font-display)] text-xl font-medium tracking-[-0.02em] text-ink/50 sm:text-2xl">
             Node-1
           </p>
 
@@ -93,7 +93,7 @@ export default function IcNd1Page() {
 
       <section className="bg-ink px-5 py-20 text-cream sm:px-8 md:px-12 lg:px-16 lg:py-28">
         <div className="mx-auto grid max-w-[90rem] gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-          <h2 className="font-[family-name:var(--font-display)] text-3xl font-black tracking-tight sm:text-4xl">
+          <h2 className="font-[family-name:var(--font-display)] text-3xl font-semibold tracking-[-0.03em] sm:text-4xl">
             The problem
           </h2>
           <p className="max-w-2xl font-[family-name:var(--font-body)] text-base leading-relaxed text-cream/75 sm:text-lg">
@@ -109,7 +109,7 @@ export default function IcNd1Page() {
       <section className="px-5 py-20 sm:px-8 md:px-12 lg:px-16 lg:py-28">
         <div className="mx-auto max-w-[90rem]">
           <div className="grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:items-end">
-            <h2 className="font-[family-name:var(--font-display)] text-3xl font-black tracking-tight text-ink sm:text-4xl">
+            <h2 className="font-[family-name:var(--font-display)] text-3xl font-semibold tracking-[-0.03em] text-ink sm:text-4xl">
               Who it&apos;s for
             </h2>
             <p className="max-w-xl font-[family-name:var(--font-body)] text-base leading-relaxed text-[color:var(--fog)] sm:text-lg">
@@ -123,13 +123,13 @@ export default function IcNd1Page() {
 
       <section className="border-y border-ink/10 bg-tan/35 px-5 py-20 sm:px-8 md:px-12 lg:px-16 lg:py-28">
         <div className="mx-auto max-w-[90rem]">
-          <h2 className="font-[family-name:var(--font-display)] text-3xl font-black tracking-tight text-ink sm:text-4xl">
+          <h2 className="font-[family-name:var(--font-display)] text-3xl font-semibold tracking-[-0.03em] text-ink sm:text-4xl">
             Target capabilities
           </h2>
           <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:gap-14">
             {capabilities.map((cap) => (
-              <div key={cap.title} className="border-t border-ink/15 pt-6">
-                <h3 className="font-[family-name:var(--font-display)] text-2xl font-bold tracking-tight text-ink">
+              <div key={cap.title} className="border-t border-ink/12 pt-6">
+                <h3 className="font-[family-name:var(--font-display)] text-2xl font-semibold tracking-[-0.025em] text-ink">
                   {cap.title}
                 </h3>
                 <p className="mt-3 font-[family-name:var(--font-body)] text-sm leading-relaxed text-[color:var(--fog)] sm:text-base">
@@ -143,11 +143,11 @@ export default function IcNd1Page() {
 
       <section className="px-5 py-20 sm:px-8 md:px-12 lg:px-16 lg:py-28">
         <div className="mx-auto max-w-[90rem]">
-          <h2 className="font-[family-name:var(--font-display)] text-3xl font-black tracking-tight text-ink sm:text-4xl">
+          <h2 className="font-[family-name:var(--font-display)] text-3xl font-semibold tracking-[-0.03em] text-ink sm:text-4xl">
             Explicitly not
           </h2>
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
-            <p className="font-[family-name:var(--font-display)] text-2xl font-bold leading-snug tracking-tight text-ink sm:text-3xl">
+            <p className="font-[family-name:var(--font-display)] text-2xl font-semibold leading-snug tracking-[-0.025em] text-ink sm:text-3xl">
               Not a multiplexer. Not a regenerating gateway. Not a drop-in AMS
               replacement.
             </p>
@@ -162,7 +162,7 @@ export default function IcNd1Page() {
 
       <section className="bg-ink px-5 py-20 text-cream sm:px-8 md:px-12 lg:px-16 lg:py-28">
         <div className="mx-auto max-w-[90rem]">
-          <h2 className="font-[family-name:var(--font-display)] text-3xl font-black tracking-tight sm:text-4xl">
+          <h2 className="font-[family-name:var(--font-display)] text-3xl font-semibold tracking-[-0.03em] sm:text-4xl">
             Talk to us
           </h2>
           <p className="mt-5 max-w-xl font-[family-name:var(--font-body)] text-sm leading-relaxed text-cream/70 sm:text-base">

@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { Bodoni_Moda, IBM_Plex_Mono } from "next/font/google";
+import { IBM_Plex_Sans, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
-const display = Bodoni_Moda({
+const display = Space_Grotesk({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
+  weight: ["400", "500", "600", "700"],
 });
 
-const body = IBM_Plex_Mono({
+const body = IBM_Plex_Sans({
   variable: "--font-body",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],

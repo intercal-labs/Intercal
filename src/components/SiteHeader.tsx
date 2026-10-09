@@ -90,7 +90,7 @@ export function SiteHeader({ active = "home" }: SiteHeaderProps) {
               <a
                 key={link.href}
                 href={link.href}
-                className={`nav-link font-[family-name:var(--font-body)] text-[0.74rem] font-semibold uppercase tracking-[0.14em] transition-colors duration-200 ${
+                className={`nav-link font-[family-name:var(--font-body)] text-[0.7rem] font-medium uppercase tracking-[0.12em] transition-colors duration-200 ${
                   isConcept ? "is-active" : ""
                 }`}
               >
@@ -147,7 +147,7 @@ export function SiteHeader({ active = "home" }: SiteHeaderProps) {
                 key={link.href}
                 href={link.href}
                 tabIndex={menuOpen ? 0 : -1}
-                className={`nav-link rounded-sm px-1 py-3 font-[family-name:var(--font-body)] text-[0.8rem] font-semibold uppercase tracking-[0.14em] transition-colors ${
+                className={`nav-link px-1 py-3 font-[family-name:var(--font-body)] text-[0.8rem] font-medium uppercase tracking-[0.12em] transition-colors ${
                   isConcept ? "is-active" : ""
                 }`}
                 onClick={closeMenu}
