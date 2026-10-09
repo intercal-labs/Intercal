@@ -337,19 +337,19 @@ a {
 
 .stagger-rules span:nth-child(1) {
   width: 100%;
-  animation: line-draw 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.48s both;
+  animation: line-draw 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
 }
 .stagger-rules span:nth-child(2) {
   width: 88%;
-  animation: line-draw 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.55s both;
+  animation: line-draw 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
 }
 .stagger-rules span:nth-child(3) {
   width: 72%;
-  animation: line-draw 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.62s both;
+  animation: line-draw 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.28s both;
 }
 .stagger-rules span:nth-child(4) {
   width: 54%;
-  animation: line-draw 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.69s both;
+  animation: line-draw 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.36s both;
 }
 
 .nav-shell {
@@ -552,7 +552,7 @@ a {
     transform: none;
   }
 
-  /* Still poster only — do not autoplay the cinematic loop */
+  /* Still poster only — do not mount/play the cinematic video */
   .hero-video {
     display: none !important;
   }

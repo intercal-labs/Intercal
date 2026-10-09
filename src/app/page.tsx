@@ -57,26 +57,15 @@ export default function Home() {
     <main className="min-w-0 max-w-[100%] overflow-x-hidden bg-cream text-ink">
       <SiteHeader active="home" />
 
-      {/* Hero — brand, one line, one CTA */}
+      {/* Hero — nav carries brand lockup; line + CTA over video */}
       <section className="relative isolate min-h-[calc(100dvh-5.5rem)] overflow-hidden">
         <HeroMedia />
 
-        <div className="relative flex min-h-[calc(100dvh-5.5rem)] w-full max-w-[100%] items-end px-5 pb-12 pt-20 sm:items-center sm:px-8 sm:pb-20 sm:pt-28 lg:px-16 lg:pb-24">
-          <div className="w-full min-w-0 max-w-2xl">
-            <div className="reveal-brand min-w-0">
-              <Image
-                src={assets.logo}
-                alt="Intercal Labs"
-                width={900}
-                height={186}
-                className="h-auto w-full max-w-full sm:max-w-[40rem]"
-                priority
-              />
-            </div>
-
+        <div className="relative flex min-h-[calc(100dvh-5.5rem)] w-full max-w-[100%] items-end px-5 pb-14 pt-16 sm:items-center sm:px-8 sm:pb-24 sm:pt-24 lg:px-16 lg:pb-28">
+          <div className="w-full min-w-0 max-w-xl">
             <div
               aria-hidden
-              className="stagger-rules mt-6 max-w-[11rem] sm:mt-8 sm:max-w-[15rem]"
+              className="stagger-rules reveal-brand max-w-[9rem] sm:max-w-[12rem]"
             >
               <span />
               <span />
@@ -84,11 +73,11 @@ export default function Home() {
               <span />
             </div>
 
-            <p className="reveal-line mt-7 max-w-md font-[family-name:var(--font-display)] text-[clamp(1.15rem,4.6vw,1.75rem)] font-bold leading-[1.2] tracking-tight text-[color:var(--mist)] sm:mt-9 sm:text-2xl lg:text-[1.75rem]">
+            <p className="reveal-line mt-8 max-w-lg font-[family-name:var(--font-display)] text-[clamp(1.45rem,5.2vw,2.35rem)] font-bold leading-[1.15] tracking-tight text-[color:var(--mist)] sm:mt-10 sm:text-[2.1rem] lg:text-[2.35rem]">
               Hardware. Firmware. Software. Field.
             </p>
 
-            <div className="reveal-cta mt-8 sm:mt-10">
+            <div className="reveal-cta mt-9 sm:mt-11">
               <a
                 href="mailto:info@intercallabs.com"
                 className="btn btn-primary"
