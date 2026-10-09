@@ -3,7 +3,7 @@ export const ASSET_BASE =
   "https://raw.githubusercontent.com/intercal-labs/Intercal/cursor/intercal-labs-splash-v1/public";
 
 export const assets = {
-  // Full-color INTERCAL Labs lockup — hero + footer.
+  // Full-color INTERCAL Labs lockup — footer (nav uses logoNav).
   logo: `${ASSET_BASE}/intercal-labs-logo.png?v=2`,
   // Dedicated cream wordmark for sticky nav (black bg removed; ?v= busts CDN).
   logoNav: `${ASSET_BASE}/intercal-navbar-logo.png?v=1`,
