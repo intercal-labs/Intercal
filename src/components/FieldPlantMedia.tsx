@@ -5,8 +5,8 @@ import { useEffect, useRef, useState } from "react";
 import { assets } from "@/lib/assets";
 
 /**
- * Field I&C editorial media: one muted Houston plant clip.
- * Autoplay when in view, pause off-screen, play once per enter.
+ * Field I&C editorial media: one muted HTX plant clip.
+ * Autoplay when in view, pause off-screen, continuous loop while playing.
  * prefers-reduced-motion and load errors keep the poster still only.
  */
 export function FieldPlantMedia() {
@@ -15,7 +15,6 @@ export function FieldPlantMedia() {
   const [allowVideo, setAllowVideo] = useState(false);
   const [inView, setInView] = useState(false);
   const [videoFailed, setVideoFailed] = useState(false);
-  const playedThisEnter = useRef(false);
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -45,16 +44,11 @@ export function FieldPlantMedia() {
     if (!el || !allowVideo || videoFailed) return;
 
     if (inView) {
-      if (!playedThisEnter.current) {
-        playedThisEnter.current = true;
-        el.currentTime = 0;
-        void el.play().catch(() => {
-          /* Autoplay blocked — poster remains. */
-        });
-      }
+      void el.play().catch(() => {
+        /* Autoplay blocked — poster remains. */
+      });
     } else {
       el.pause();
-      playedThisEnter.current = false;
     }
   }, [inView, allowVideo, videoFailed]);
 
@@ -76,14 +70,11 @@ export function FieldPlantMedia() {
             ref={videoRef}
             className="field-video absolute inset-0 h-full w-full max-w-none object-cover"
             muted
+            loop
             playsInline
             preload="metadata"
             poster={assets.fieldHoustonPoster}
             aria-hidden
-            onEnded={() => {
-              const el = videoRef.current;
-              if (el) el.pause();
-            }}
             onError={() => setVideoFailed(true)}
           >
             <source src={assets.fieldHoustonVideo} type="video/mp4" />
